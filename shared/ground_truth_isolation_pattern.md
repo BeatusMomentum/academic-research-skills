@@ -150,8 +150,14 @@ retrieval-class agents with the largest external-content surface
 revision coach (`revision_coach_agent`, #883), whose reviewer and committee text
 usually arrives pasted into the user's own message, a channel the Claude Opus 5.5
 system card reports as more susceptible to planted instructions than tool results
-(§6.5.1). `HOTSPOT_AGENTS` in `scripts/check_instruction_data_boundary.py` is the
-authoritative list.
+(§6.5.1). #890 adds twelve agents on the dispatch and passport-import paths, where
+third-party text reaches an agent inside its task prompt or through the Material
+Passport rather than through its own tool calls, and copies the sentences into
+two prompts a model receives without the agent file: the claim-audit judge prompt
+and the cross-model devil's advocate prompt. `HOTSPOT_AGENTS` and
+`PROMPT_TEMPLATES` in `scripts/check_instruction_data_boundary.py` are the
+authoritative lists; `docs/design/2026-09-23-890-instruction-data-boundary-extension.md`
+records the inventory and the surfaces left uncovered.
 
 ---
 
